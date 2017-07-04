@@ -1,4 +1,4 @@
-/***
+/**
  *Adar Dorham 203537824 89-281-03
  *Omer Forma 304823230 89-281-03
  *Roi Peretz 203258041 89-281-04
@@ -76,8 +76,8 @@ public class ScreenController {
 
     @FXML
     TextArea dmlAnswerTxt;
-
-
+    @FXML
+    Button sendButton;
     @FXML
     void initialize() throws Exception {
         final ToggleGroup ddlTg = new ToggleGroup();
@@ -390,7 +390,11 @@ public class ScreenController {
             }
         });
 
-
+        sendButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent event) {
+                System.out.print("dfd");
+            }
+        });
     }
 
     /*

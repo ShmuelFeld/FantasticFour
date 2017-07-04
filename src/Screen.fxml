@@ -235,6 +235,26 @@
                   </AnchorPane>
                </content>
             </Tab>
+         <Tab text="Simple Query">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <VBox>
+                           <Label prefHeight="25.0" prefWidth="103.0" text="Tables:">
+                           </Label>
+                           <ComboBox fx:id="Table" prefHeight="25.0" prefWidth="76.0">
+                           </ComboBox>
+                           <Label text="Column:">
+                           </Label>
+                           <ComboBox fx:id="column" prefHeight="25.0" prefWidth="76.0">
+                           </ComboBox>
+                           <TextField fx:id="query" prefHeight="37.0" prefWidth="226.0" />
+                           <Button fx:id="sendButton" prefHeight="25.0" prefWidth="73.0" text="SEND"/>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
          </tabs>
       </TabPane>
    </children>
