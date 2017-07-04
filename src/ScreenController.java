@@ -307,8 +307,8 @@ public class ScreenController {
                     else
                     {
                         try {
-                            dbc.sendDDLQuery(ddlQueryTxt.getText());
-                            ddlAnswerTxt.setText("Success");
+                            String result=dbc.sendDDLQuery(ddlQueryTxt.getText());
+                            ddlAnswerTxt.setText(result);
                         } catch (Exception e) {
                             if(e.getMessage().contains("syntax")) {
                                 new errorMsg("WRONG QUERY STRUCTURE", e.getMessage()).show();

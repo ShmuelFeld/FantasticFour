@@ -1,11 +1,12 @@
 /***
- *Adar Dorham 203537824 89-281-03
- *Omer Forma 304823230 89-281-03
- *Roi Peretz 203258041 89-281-04
- *Tomer Rahamim 203717475 89-281-05
+ * Adar Dorham 203537824 89-281-03
+ * Omer Forma 304823230 89-281-03
+ * Roi Peretz 203258041 89-281-04
+ * Tomer Rahamim 203717475 89-281-05
  ***/
 
 
+import javax.management.Query;
 import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
@@ -18,11 +19,10 @@ import java.util.List;
  */
 public class DBClient {
 
-    private Connection connect = null;
-    private Statement statement = null;
-
     //The driver
     public static final String dbClass = "com.mysql.jdbc.Driver";
+    private Connection connect = null;
+    private Statement statement = null;
 
     /**
      * DBClient c'tor - create new DBClient , extract the database information from
@@ -85,8 +85,13 @@ public class DBClient {
      * @param query - the client query
      * @throws Exception
      */
-    public void sendDDLQuery(String query) throws Exception {
-        statement.executeUpdate(query);
+    public String sendDDLQuery(String query) throws Exception {
+        if (query.contains("SHOW") || query.contains("DESCRIBE") ) {
+            return sendDMLQuery(query);
+        } else {
+            statement.executeUpdate(query);
+            return "Success";
+        }
     }
 
 
@@ -96,18 +101,16 @@ public class DBClient {
      * @param file - the script.
      * @return the list of commands.
      */
-    public List<String> readScriptFromFile(File file){
+    public List<String> readScriptFromFile(File file) {
         String content = new String();
         StringBuffer sb = new StringBuffer();
         List<String> commands = new ArrayList<String>();
-        try
-        {
+        try {
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             //read all lines
-            while((content = br.readLine()) != null)
-            {
-                if(!content.contains("#")) {
+            while ((content = br.readLine()) != null) {
+                if (!content.contains("#")) {
                     sb.append(content);
                 }
             }
@@ -116,16 +119,12 @@ public class DBClient {
             String[] inst = sb.toString().split(";");
 
             //Ignore spaces and new line
-            for(int i = 0; i<inst.length; i++)
-            {
-                if(!inst[i].trim().equals(""))
-                {
+            for (int i = 0; i < inst.length; i++) {
+                if (!inst[i].trim().equals("")) {
                     commands.add(inst[i]);
                 }
             }
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
         }
         return commands;
     }
