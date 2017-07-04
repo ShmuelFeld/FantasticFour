@@ -1,0 +1,50 @@
+.errorPane{
+    -fx-background-image: url(errorBg.jpg);
+    -fx-background-size: cover;
+}
+
+.imgError{
+    -fx-image: url(imgError.png);
+    -fx-background-size: cover;
+}
+
+.btnError{
+    -fx-background-color:
+            linear-gradient(#ff0000, #990000),
+            radial-gradient(center 50% -40%, radius 200%, #ff6666 45%, #ff3232 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}
+
+.btnError:hover{
+    -fx-background-color:
+            linear-gradient(#ff0000, #990000),
+            radial-gradient(center 50% -40%, radius 200%, #ff3232 45%, #b20000 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}
+
+.btnError:pressed{
+    -fx-background-color:
+            linear-gradient(#ff0000, #990000),
+            radial-gradient(center 50% -40%, radius 200%, #b20000 45%, #990000 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}
+
+.titleError{
+    -fx-text-fill: #b20000;
+    -fx-font-weight: bold;
+}
+
+.lblError {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+}

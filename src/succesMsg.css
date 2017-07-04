@@ -1,0 +1,49 @@
+.successPane{
+    -fx-background-image: url(successBg.jpg);
+    -fx-background-size: cover;
+}
+
+.imgSuccess{
+    -fx-image: url(imgSuccess.png);
+    -fx-background-size: cover;
+}
+
+.btnSuccess{
+    -fx-background-color:
+            linear-gradient(#00ff00, #006600),
+            radial-gradient(center 50% -40%, radius 200%, #99ff99 45%, #00e500 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}
+
+.btnSuccess:hover{
+    -fx-background-color:
+            linear-gradient(#00ff00, #006600),
+            radial-gradient(center 50% -40%, radius 200%, #00e500 45%, #00b200 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}
+
+.btnSuccess:pressed{
+    -fx-background-color:
+            linear-gradient(#00ff00, #006600),
+            radial-gradient(center 50% -40%, radius 200%, #009900 45%, #007f00 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+}
+
+.titleSuccess{
+    -fx-text-fill: #007f00;
+    -fx-font-weight: bold;
+}
+
+.lblSuccess {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
