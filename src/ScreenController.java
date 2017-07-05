@@ -37,6 +37,9 @@ public class ScreenController {
     }
 
     @FXML
+    ComboBox<String> tablesComboBox;
+
+    @FXML
     RadioButton ddlFileRadioBtn;
 
     @FXML
@@ -401,7 +404,28 @@ public class ScreenController {
         simpleQueryTab.setOnSelectionChanged(new EventHandler<Event>() {
             @Override
             public void handle(Event t) {
-                System.out.print("sdf");
+                System.out.print("blablabla");
+                        try {
+                            String result=dbc.sendDDLQuery("SHOW TABLES");
+                            //ddlAnswerTxt.setText(result);
+                            //putting the table names in array.
+                            String[] resultArr = result.split("\n");
+                            for(int i=1;i<resultArr.length;i++){
+                                tablesComboBox.getItems().addAll(resultArr[i]);
+                            }
+
+                        } catch (Exception e) {
+                            if(e.getMessage().contains("syntax")) {
+                                new errorMsg("WRONG QUERY STRUCTURE", e.getMessage()).show();
+                            }
+                            else {
+                                new errorMsg("LOGICAL ERROR", e.getMessage()).show();
+                            }
+                            ddlAnswerTxt.setText("Failed");
+                        }
+
+
+
             }
         });
     }

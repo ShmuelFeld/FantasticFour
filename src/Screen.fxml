@@ -242,7 +242,7 @@
                         <VBox>
                            <Label prefHeight="25.0" prefWidth="103.0" text="Tables:">
                            </Label>
-                           <ComboBox fx:id="Table" prefHeight="25.0" prefWidth="76.0">
+                           <ComboBox fx:id="tablesComboBox" prefHeight="25.0" prefWidth="76.0">
                            </ComboBox>
                            <Label text="Column:">
                            </Label>

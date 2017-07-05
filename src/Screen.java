@@ -35,6 +35,7 @@ public class Screen extends Application {
         scene.getStylesheets().add(getClass().getResource("Screen.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
+
         primaryStage.show();
     }
 }
