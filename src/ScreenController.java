@@ -7,6 +7,7 @@
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -78,6 +79,8 @@ public class ScreenController {
     TextArea dmlAnswerTxt;
     @FXML
     Button sendButton;
+    @FXML
+    Tab simpleQueryTab;
     @FXML
     void initialize() throws Exception {
         final ToggleGroup ddlTg = new ToggleGroup();
@@ -393,6 +396,12 @@ public class ScreenController {
         sendButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
                 System.out.print("dfd");
+            }
+        });
+        simpleQueryTab.setOnSelectionChanged(new EventHandler<Event>() {
+            @Override
+            public void handle(Event t) {
+                System.out.print("sdf");
             }
         });
     }

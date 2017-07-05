@@ -235,7 +235,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-         <Tab text="Simple Query">
+         <Tab text="Simple Query" fx:id="simpleQueryTab">
                <content>
                   <AnchorPane>
                      <children>
