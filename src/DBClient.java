@@ -27,6 +27,7 @@ public class DBClient {
     /**
      * DBClient c'tor - create new DBClient , extract the database information from
      * the conf.txt file and establish the connection with the server.
+     *
      * @throws Exception
      */
     public DBClient() throws Exception {
@@ -50,6 +51,7 @@ public class DBClient {
 
     /**
      * Parse the dml query and send it to the server.
+     *
      * @param query - the client query
      * @return the result return from the database
      * @throws Exception
@@ -82,11 +84,12 @@ public class DBClient {
 
     /**
      * Send the ddl query to the server.
+     *
      * @param query - the client query
      * @throws Exception
      */
     public String sendDDLQuery(String query) throws Exception {
-        if (query.contains("SHOW") || query.contains("DESCRIBE") ) {
+        if (query.contains("SHOW") || query.contains("DESCRIBE")) {
             return sendDMLQuery(query);
         } else {
             statement.executeUpdate(query);
@@ -98,6 +101,7 @@ public class DBClient {
     /**
      * Open a giving file with script and read his content. Separate the script text
      * to commands and return the commands as a list.
+     *
      * @param file - the script.
      * @return the list of commands.
      */
@@ -127,6 +131,22 @@ public class DBClient {
         } catch (Exception e) {
         }
         return commands;
+    }
+
+    public List<String> getColumnsNames(String tableName) throws Exception {
+        String query = "SHOW columns FROM " + tableName;
+        ResultSet resultSet = statement.executeQuery(query);
+        ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+        List<String> fieldsList=new ArrayList<String>();
+
+        while (resultSet.next()) {
+            String fieldName = resultSet.getString(1);
+            System.out.println(fieldName);
+            fieldsList.add(fieldName);
+        }
+
+        return fieldsList;
+
     }
 
 }

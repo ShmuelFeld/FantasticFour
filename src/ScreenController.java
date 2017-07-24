@@ -15,11 +15,14 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
 import java.util.List;
+import java.util.logging.StreamHandler;
 
 /*
 * handle screen views
@@ -84,6 +87,10 @@ public class ScreenController {
     Button sendButton;
     @FXML
     Tab simpleQueryTab;
+
+    @FXML
+    VBox columns;
+
     @FXML
     void initialize() throws Exception {
         final ToggleGroup ddlTg = new ToggleGroup();
@@ -401,6 +408,25 @@ public class ScreenController {
                 System.out.print("dfd");
             }
         });
+
+
+        tablesComboBox.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<String>() {
+                    public void changed(ObservableValue<? extends String> ov,
+                                        String old_val, String new_val) {
+                        System.out.println("table selection changed");
+                        System.out.println("new value: "+new_val);
+                        try {
+                            List<String> columnsNames=dbc.getColumnsNames(new_val);
+                            for(String name : columnsNames) {
+                                columns.getChildren().add(new CheckBox(name));
+                            }
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
+                });
+
         simpleQueryTab.setOnSelectionChanged(new EventHandler<Event>() {
             @Override
             public void handle(Event t) {
