@@ -73,6 +73,8 @@ public class ScreenController {
     VBox columns;
     @FXML
     TextField whereClause;
+    @FXML
+    HBox textsHBox;
 
     public ScreenController(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -360,12 +362,13 @@ public class ScreenController {
 
         sendButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
+                textsHBox.getChildren().clear();
                 String query;
                 query = "select ";
                 ObservableList<Node> columnsList = columns.getChildren();
                 if (!columnsList.isEmpty()) {
                     for (Node column : columnsList) {
-                        CheckBox checkBox = (CheckBox)column;
+                        CheckBox checkBox = (CheckBox) column;
                         if (checkBox.isSelected()) {
                             query += checkBox.getText() + ",";
                         }
@@ -375,16 +378,22 @@ public class ScreenController {
                 query = query.substring(0, query.length() - 1);
 
                 query += (" FROM " + tablesComboBox.getValue());
-                String where=whereClause.getCharacters().toString();
+                String where = whereClause.getCharacters().toString();
                 if (!where.isEmpty()) {
-                    query+=(" WHERE " +where);
+                    query += (" WHERE " + where);
                 }
 
                 try {
-                    String result=dbc.sendDMLQuery(query);
+                    String result = dbc.sendDMLQuery(query);
                     System.out.println(result);
+                    textsHBox.getChildren().add(new TextField(result));
+
                 } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                    if (e.getMessage().contains("syntax")) {
+                        new errorMsg("WRONG QUERY STRUCTURE", e.getMessage()).show();
+                    } else {
+                        new errorMsg("LOGICAL ERROR", e.getMessage()).show();
+                    }
                 }
             }
 
@@ -414,6 +423,7 @@ public class ScreenController {
             @Override
             public void handle(Event t) {
                 System.out.print("blablabla");
+                tablesComboBox.getItems().clear();
                 try {
                     String result = dbc.sendDDLQuery("SHOW TABLES");
                     //ddlAnswerTxt.setText(result);

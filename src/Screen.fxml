@@ -253,7 +253,10 @@
                            <Label text="Where:">
                            </Label>
 
+                           <HBox fx:id="textsHBox">
                            <TextField fx:id="whereClause" prefHeight="37.0" prefWidth="226.0" />
+
+                           </HBox>
                            <Button fx:id="sendButton" prefHeight="25.0" prefWidth="73.0" text="SEND"/>
                         </VBox>
                      </children>
