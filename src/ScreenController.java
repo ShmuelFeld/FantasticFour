@@ -74,7 +74,7 @@ public class ScreenController {
     @FXML
     TextField whereClause;
     @FXML
-    HBox textsHBox;
+    TextArea simpleQueryResult;
 
     public ScreenController(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -94,6 +94,7 @@ public class ScreenController {
         ddlFileChooserTxt.setEditable(false);
         dmlAnswerTxt.setEditable(false);
         dmlFileChooserTxt.setEditable(false);
+        simpleQueryResult.setEditable(false);
 
         ddlFileRadioBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -362,7 +363,7 @@ public class ScreenController {
 
         sendButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
-                textsHBox.getChildren().clear();
+                simpleQueryResult.clear();
                 String query;
                 query = "select ";
                 ObservableList<Node> columnsList = columns.getChildren();
@@ -386,7 +387,7 @@ public class ScreenController {
                 try {
                     String result = dbc.sendDMLQuery(query);
                     System.out.println(result);
-                    textsHBox.getChildren().add(new TextField(result));
+                    simpleQueryResult.setText(result);
 
                 } catch (Exception e) {
                     if (e.getMessage().contains("syntax")) {

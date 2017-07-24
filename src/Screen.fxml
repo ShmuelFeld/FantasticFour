@@ -7,263 +7,296 @@
 <?import javafx.scene.layout.*?>
 
 <VBox fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="700.0" styleClass="mainPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <HBox alignment="CENTER" maxHeight="50.0" maxWidth="700.0" minHeight="50.0" minWidth="700.0" prefHeight="50.0" prefWidth="700.0">
-         <children>
-            <ImageView fx:id="dbLogo" fitHeight="50.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true" styleClass="dbLogo" />
-         </children>
-      </HBox>
-      <TabPane maxHeight="300.0" maxWidth="-Infinity" minHeight="300.0" minWidth="-Infinity" prefHeight="300.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
-         <tabs>
-            <Tab text="DDL">
-               <content>
-                  <AnchorPane>
-                     <children>
-                        <VBox maxHeight="250.0" maxWidth="700.0" minHeight="250.0" minWidth="700.0" prefHeight="250.0" prefWidth="700.0">
-                           <children>
-                              <HBox alignment="CENTER" maxHeight="50.0" maxWidth="700.0" minHeight="50.0" minWidth="700.0" prefHeight="50.0" prefWidth="700.0">
-                                 <children>
-                                    <ImageView fx:id="ddlLogo" fitHeight="50.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true" styleClass="ddlLogo">
-                                       <HBox.margin>
-                                          <Insets bottom="10.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <HBox maxHeight="200.0" maxWidth="700.0" minHeight="200.0" minWidth="700.0" prefHeight="200.0" prefWidth="700.0">
-                                 <children>
-                                    <VBox alignment="CENTER" maxHeight="200.0" maxWidth="350.0" minHeight="200.0" minWidth="350.0" prefHeight="200.0" prefWidth="350.0">
-                                       <children>
-                                          <GridPane prefHeight="135.0" prefWidth="350.0">
-                                             <children>
-                                                <HBox alignment="CENTER_LEFT" maxHeight="25.0" maxWidth="250.0" minHeight="25.0" minWidth="250.0" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1">
-                                                   <children>
-                                                      <TextField fx:id="ddlFileChooserTxt" prefHeight="25.0" prefWidth="317.0" />
-                                                      <Button fx:id="ddlFileChooserBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="87.0" prefWidth="31.0" text="..." textAlignment="CENTER" />
-                                                   </children>
-                                                   <GridPane.margin>
-                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                   </GridPane.margin>
-                                                </HBox>
-                                                <HBox alignment="CENTER_LEFT" maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="100.0" prefHeight="25.0" prefWidth="100.0">
-                                                   <children>
-                                                      <RadioButton fx:id="ddlFileRadioBtn" mnemonicParsing="false" text="File" />
-                                                   </children>
-                                                   <GridPane.margin>
-                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                   </GridPane.margin>
-                                                </HBox>
-                                                <HBox alignment="CENTER_LEFT" maxHeight="100.0" maxWidth="250.0" minHeight="100.0" minWidth="250.0" prefHeight="100.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                                   <children>
-                                                      <TextArea fx:id="ddlQueryTxt" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="276.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                                         <GridPane.margin>
-                                                            <Insets top="5.0" />
-                                                         </GridPane.margin>
-                                                      </TextArea>
-                                                   </children>
-                                                   <GridPane.margin>
-                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                   </GridPane.margin>
-                                                </HBox>
-                                                <HBox alignment="CENTER_LEFT" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0" GridPane.rowIndex="1">
-                                                   <children>
-                                                      <RadioButton fx:id="ddlQueryRadioBtn" mnemonicParsing="false" text="Query" GridPane.rowIndex="1" />
-                                                   </children>
-                                                   <GridPane.margin>
-                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                   </GridPane.margin>
-                                                </HBox>
-                                             </children>
-                                             <columnConstraints>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="88.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="262.0" />
-                                             </columnConstraints>
-                                             <rowConstraints>
-                                                <RowConstraints maxHeight="25.0" minHeight="25.0" percentHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="75.0" minHeight="75.0" percentHeight="100.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                                             </rowConstraints>
-                                          </GridPane>
-                                          <HBox alignment="CENTER">
-                                             <children>
-                                                <Button fx:id="ddlSendBtn" mnemonicParsing="false" text="Send">
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin>
-                                                </Button>
-                                             </children>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </HBox>
-                                       </children>
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
-                                    </VBox>
-                                    <VBox alignment="CENTER" maxHeight="200.0" maxWidth="350.0" minHeight="200.0" minWidth="350.0" prefHeight="200.0" prefWidth="350.0">
-                                       <children>
-                                          <ImageView fx:id="ddlAnswerLogo" fitHeight="30.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" styleClass="answerLogo">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </ImageView>
-                                          <HBox maxHeight="100.0" maxWidth="345.0" minHeight="100.0" minWidth="345.0" prefHeight="100.0" prefWidth="345.0">
-                                             <children>
-                                                <TextArea id="ddlAnswerTxt" fx:id="ddlAnswerTxt" maxHeight="100.0" maxWidth="345.0" minHeight="100.0" minWidth="345.0" prefHeight="100.0" prefWidth="345.0" />
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="50.0" />
-                                       </padding>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab text="DML">
-               <content>
-                  <AnchorPane>
-                     <children>
-                        <VBox maxHeight="250.0" maxWidth="700.0" minHeight="250.0" minWidth="700.0" prefHeight="250.0" prefWidth="700.0">
-                           <children>
-                              <HBox alignment="CENTER" maxHeight="50.0" maxWidth="700.0" minHeight="50.0" minWidth="700.0" prefHeight="50.0" prefWidth="700.0">
-                                 <children>
-                                    <ImageView fx:id="dmlLogo" fitHeight="50.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true" styleClass="dmlLogo">
-                                       <HBox.margin>
-                                          <Insets bottom="10.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <HBox maxHeight="200.0" maxWidth="700.0" minHeight="200.0" minWidth="700.0" prefHeight="200.0" prefWidth="700.0">
-                                 <children>
-                                    <VBox alignment="CENTER" maxHeight="200.0" maxWidth="350.0" minHeight="200.0" minWidth="350.0" prefHeight="200.0" prefWidth="350.0">
-                                       <children>
-                                          <GridPane prefHeight="135.0" prefWidth="350.0">
-                                             <children>
-                                                <HBox alignment="CENTER_LEFT" maxHeight="25.0" maxWidth="250.0" minHeight="25.0" minWidth="250.0" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1">
-                                                   <children>
-                                                      <TextField fx:id="dmlFileChooserTxt" prefHeight="25.0" prefWidth="317.0" />
-                                                      <Button fx:id="dmlFileChooserBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="87.0" prefWidth="31.0" text="..." textAlignment="CENTER" />
-                                                   </children>
-                                                   <GridPane.margin>
-                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                   </GridPane.margin>
-                                                </HBox>
-                                                <HBox alignment="CENTER_LEFT" maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="100.0" prefHeight="25.0" prefWidth="100.0">
-                                                   <children>
-                                                      <RadioButton fx:id="dmlFileRadioBtn" mnemonicParsing="false" text="File" />
-                                                   </children>
-                                                   <GridPane.margin>
-                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                   </GridPane.margin>
-                                                </HBox>
-                                                <HBox alignment="CENTER_LEFT" maxHeight="100.0" maxWidth="250.0" minHeight="100.0" minWidth="250.0" prefHeight="100.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                                   <children>
-                                                      <TextArea fx:id="dmlQueryTxt" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="276.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                                         <GridPane.margin>
-                                                            <Insets top="5.0" />
-                                                         </GridPane.margin>
-                                                      </TextArea>
-                                                   </children>
-                                                   <GridPane.margin>
-                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                   </GridPane.margin>
-                                                </HBox>
-                                                <HBox alignment="CENTER_LEFT" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0" GridPane.rowIndex="1">
-                                                   <children>
-                                                      <RadioButton fx:id="dmlQueryRadioBtn" mnemonicParsing="false" text="Query" GridPane.rowIndex="1" />
-                                                   </children>
-                                                   <GridPane.margin>
-                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                   </GridPane.margin>
-                                                </HBox>
-                                             </children>
-                                             <columnConstraints>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="88.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="262.0" />
-                                             </columnConstraints>
-                                             <rowConstraints>
-                                                <RowConstraints maxHeight="25.0" minHeight="25.0" percentHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="75.0" minHeight="75.0" percentHeight="100.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                                             </rowConstraints>
-                                          </GridPane>
-                                          <HBox alignment="CENTER">
-                                             <children>
-                                                <Button fx:id="dmlSendBtn" mnemonicParsing="false" text="Send">
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin>
-                                                </Button>
-                                             </children>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </HBox>
-                                       </children>
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
-                                    </VBox>
-                                    <VBox alignment="CENTER" maxHeight="200.0" maxWidth="350.0" minHeight="200.0" minWidth="350.0" prefHeight="200.0" prefWidth="350.0">
-                                       <children>
-                                          <ImageView fx:id="ddlAnswerLogo1" fitHeight="30.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" styleClass="answerLogo">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </ImageView>
-                                          <HBox maxHeight="100.0" maxWidth="345.0" minHeight="100.0" minWidth="345.0" prefHeight="100.0" prefWidth="345.0">
-                                             <children>
-                                                <TextArea fx:id="dmlAnswerTxt" maxHeight="100.0" maxWidth="345.0" minHeight="100.0" minWidth="345.0" prefHeight="100.0" prefWidth="345.0" />
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="50.0" />
-                                       </padding>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-         <Tab text="Simple Query" fx:id="simpleQueryTab">
-               <content>
-                  <AnchorPane>
-                     <children>
-                        <VBox>
-                           <Label prefHeight="25.0" prefWidth="103.0" text="Tables:">
-                           </Label>
-                           <ComboBox fx:id="tablesComboBox" prefHeight="25.0" prefWidth="76.0">
-                           </ComboBox>
-                           <Label text="Column:">
-                           </Label>
-                           <VBox fx:id="columns">
+    <children>
+        <HBox alignment="CENTER" maxHeight="50.0" maxWidth="700.0" minHeight="50.0" minWidth="700.0" prefHeight="50.0" prefWidth="700.0">
+            <children>
+                <ImageView fx:id="dbLogo" fitHeight="50.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true" styleClass="dbLogo" />
+            </children>
+        </HBox>
+        <TabPane maxHeight="300.0" maxWidth="-Infinity" minHeight="300.0" minWidth="-Infinity" prefHeight="300.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="DDL">
+                    <content>
+                        <AnchorPane>
+                            <children>
+                                <VBox maxHeight="250.0" maxWidth="700.0" minHeight="250.0" minWidth="700.0" prefHeight="250.0" prefWidth="700.0">
+                                    <children>
+                                        <HBox alignment="CENTER" maxHeight="50.0" maxWidth="700.0" minHeight="50.0" minWidth="700.0" prefHeight="50.0" prefWidth="700.0">
+                                            <children>
+                                                <ImageView fx:id="ddlLogo" fitHeight="50.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true" styleClass="ddlLogo">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                        <HBox maxHeight="200.0" maxWidth="700.0" minHeight="200.0" minWidth="700.0" prefHeight="200.0" prefWidth="700.0">
+                                            <children>
+                                                <VBox alignment="CENTER" maxHeight="200.0" maxWidth="350.0" minHeight="200.0" minWidth="350.0" prefHeight="200.0" prefWidth="350.0">
+                                                    <children>
+                                                        <GridPane prefHeight="135.0" prefWidth="350.0">
+                                                            <children>
+                                                                <HBox alignment="CENTER_LEFT" maxHeight="25.0" maxWidth="250.0" minHeight="25.0" minWidth="250.0" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1">
+                                                                    <children>
+                                                                        <TextField fx:id="ddlFileChooserTxt" prefHeight="25.0" prefWidth="317.0" />
+                                                                        <Button fx:id="ddlFileChooserBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="87.0" prefWidth="31.0" text="..." textAlignment="CENTER" />
+                                                                    </children>
+                                                                    <GridPane.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                    </GridPane.margin>
+                                                                </HBox>
+                                                                <HBox alignment="CENTER_LEFT" maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="100.0" prefHeight="25.0" prefWidth="100.0">
+                                                                    <children>
+                                                                        <RadioButton fx:id="ddlFileRadioBtn" mnemonicParsing="false" text="File" />
+                                                                    </children>
+                                                                    <GridPane.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                    </GridPane.margin>
+                                                                </HBox>
+                                                                <HBox alignment="CENTER_LEFT" maxHeight="100.0" maxWidth="250.0" minHeight="100.0" minWidth="250.0" prefHeight="100.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                    <children>
+                                                                        <TextArea fx:id="ddlQueryTxt" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="276.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                            <GridPane.margin>
+                                                                                <Insets top="5.0" />
+                                                                            </GridPane.margin>
+                                                                        </TextArea>
+                                                                    </children>
+                                                                    <GridPane.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                    </GridPane.margin>
+                                                                </HBox>
+                                                                <HBox alignment="CENTER_LEFT" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0" GridPane.rowIndex="1">
+                                                                    <children>
+                                                                        <RadioButton fx:id="ddlQueryRadioBtn" mnemonicParsing="false" text="Query" GridPane.rowIndex="1" />
+                                                                    </children>
+                                                                    <GridPane.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                    </GridPane.margin>
+                                                                </HBox>
+                                                            </children>
+                                                            <columnConstraints>
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="88.0" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="262.0" />
+                                                            </columnConstraints>
+                                                            <rowConstraints>
+                                                                <RowConstraints maxHeight="25.0" minHeight="25.0" percentHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                                                                <RowConstraints maxHeight="75.0" minHeight="75.0" percentHeight="100.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                                                            </rowConstraints>
+                                                        </GridPane>
+                                                        <HBox alignment="CENTER">
+                                                            <children>
+                                                                <Button fx:id="ddlSendBtn" mnemonicParsing="false" text="Send">
+                                                                    <HBox.margin>
+                                                                        <Insets />
+                                                                    </HBox.margin>
+                                                                </Button>
+                                                            </children>
+                                                            <VBox.margin>
+                                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                            </VBox.margin>
+                                                        </HBox>
+                                                    </children>
+                                                    <HBox.margin>
+                                                        <Insets />
+                                                    </HBox.margin>
+                                                </VBox>
+                                                <VBox alignment="CENTER" maxHeight="200.0" maxWidth="350.0" minHeight="200.0" minWidth="350.0" prefHeight="200.0" prefWidth="350.0">
+                                                    <children>
+                                                        <ImageView fx:id="ddlAnswerLogo" fitHeight="30.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" styleClass="answerLogo">
+                                                            <VBox.margin>
+                                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                            </VBox.margin>
+                                                        </ImageView>
+                                                        <HBox maxHeight="100.0" maxWidth="345.0" minHeight="100.0" minWidth="345.0" prefHeight="100.0" prefWidth="345.0">
+                                                            <children>
+                                                                <TextArea id="ddlAnswerTxt" fx:id="ddlAnswerTxt" maxHeight="100.0" maxWidth="345.0" minHeight="100.0" minWidth="345.0" prefHeight="100.0" prefWidth="345.0" />
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                    <padding>
+                                                        <Insets bottom="50.0" />
+                                                    </padding>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="DML">
+                    <content>
+                        <AnchorPane>
+                            <children>
+                                <VBox maxHeight="250.0" maxWidth="700.0" minHeight="250.0" minWidth="700.0" prefHeight="250.0" prefWidth="700.0">
+                                    <children>
+                                        <HBox alignment="CENTER" maxHeight="50.0" maxWidth="700.0" minHeight="50.0" minWidth="700.0" prefHeight="50.0" prefWidth="700.0">
+                                            <children>
+                                                <ImageView fx:id="dmlLogo" fitHeight="50.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true" styleClass="dmlLogo">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                        <HBox maxHeight="200.0" maxWidth="700.0" minHeight="200.0" minWidth="700.0" prefHeight="200.0" prefWidth="700.0">
+                                            <children>
+                                                <VBox alignment="CENTER" maxHeight="200.0" maxWidth="350.0" minHeight="200.0" minWidth="350.0" prefHeight="200.0" prefWidth="350.0">
+                                                    <children>
+                                                        <GridPane prefHeight="135.0" prefWidth="350.0">
+                                                            <children>
+                                                                <HBox alignment="CENTER_LEFT" maxHeight="25.0" maxWidth="250.0" minHeight="25.0" minWidth="250.0" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1">
+                                                                    <children>
+                                                                        <TextField fx:id="dmlFileChooserTxt" prefHeight="25.0" prefWidth="317.0" />
+                                                                        <Button fx:id="dmlFileChooserBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="87.0" prefWidth="31.0" text="..." textAlignment="CENTER" />
+                                                                    </children>
+                                                                    <GridPane.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                    </GridPane.margin>
+                                                                </HBox>
+                                                                <HBox alignment="CENTER_LEFT" maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="100.0" prefHeight="25.0" prefWidth="100.0">
+                                                                    <children>
+                                                                        <RadioButton fx:id="dmlFileRadioBtn" mnemonicParsing="false" text="File" />
+                                                                    </children>
+                                                                    <GridPane.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                    </GridPane.margin>
+                                                                </HBox>
+                                                                <HBox alignment="CENTER_LEFT" maxHeight="100.0" maxWidth="250.0" minHeight="100.0" minWidth="250.0" prefHeight="100.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                    <children>
+                                                                        <TextArea fx:id="dmlQueryTxt" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="276.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                            <GridPane.margin>
+                                                                                <Insets top="5.0" />
+                                                                            </GridPane.margin>
+                                                                        </TextArea>
+                                                                    </children>
+                                                                    <GridPane.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                    </GridPane.margin>
+                                                                </HBox>
+                                                                <HBox alignment="CENTER_LEFT" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0" GridPane.rowIndex="1">
+                                                                    <children>
+                                                                        <RadioButton fx:id="dmlQueryRadioBtn" mnemonicParsing="false" text="Query" GridPane.rowIndex="1" />
+                                                                    </children>
+                                                                    <GridPane.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                    </GridPane.margin>
+                                                                </HBox>
+                                                            </children>
+                                                            <columnConstraints>
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="88.0" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="262.0" />
+                                                            </columnConstraints>
+                                                            <rowConstraints>
+                                                                <RowConstraints maxHeight="25.0" minHeight="25.0" percentHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                                                                <RowConstraints maxHeight="75.0" minHeight="75.0" percentHeight="100.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                                                            </rowConstraints>
+                                                        </GridPane>
+                                                        <HBox alignment="CENTER">
+                                                            <children>
+                                                                <Button fx:id="dmlSendBtn" mnemonicParsing="false" text="Send">
+                                                                    <HBox.margin>
+                                                                        <Insets />
+                                                                    </HBox.margin>
+                                                                </Button>
+                                                            </children>
+                                                            <VBox.margin>
+                                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                            </VBox.margin>
+                                                        </HBox>
+                                                    </children>
+                                                    <HBox.margin>
+                                                        <Insets />
+                                                    </HBox.margin>
+                                                </VBox>
+                                                <VBox alignment="CENTER" maxHeight="200.0" maxWidth="350.0" minHeight="200.0" minWidth="350.0" prefHeight="200.0" prefWidth="350.0">
+                                                    <children>
+                                                        <ImageView fx:id="ddlAnswerLogo1" fitHeight="30.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" styleClass="answerLogo">
+                                                            <VBox.margin>
+                                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                            </VBox.margin>
+                                                        </ImageView>
+                                                        <HBox maxHeight="100.0" maxWidth="345.0" minHeight="100.0" minWidth="345.0" prefHeight="100.0" prefWidth="345.0">
+                                                            <children>
+                                                                <TextArea fx:id="dmlAnswerTxt" maxHeight="100.0" maxWidth="345.0" minHeight="100.0" minWidth="345.0" prefHeight="100.0" prefWidth="345.0" />
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                    <padding>
+                                                        <Insets bottom="50.0" />
+                                                    </padding>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="simpleQueryTab" text="Simple Query">
+                    <content>
+                        <AnchorPane>
+                            <children>
+                                <GridPane alignment="CENTER" prefHeight="239.0" prefWidth="571.0">
 
-                           </VBox>
+                                    <children>
+                                        <VBox GridPane.columnIndex="1">
+                                            <children>
+                                                <Label prefHeight="25.0" prefWidth="103.0" text="Tables:">
+                                                </Label>
+                                                <ComboBox fx:id="tablesComboBox" prefHeight="25.0" prefWidth="76.0">
+                                                </ComboBox>
+                                                <Label text="Column:">
+                                                </Label>
+                                                <VBox fx:id="columns">
+                                                    <GridPane.margin>
+                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                    </GridPane.margin>
+                                                </VBox>
 
-                           <Label text="Where:">
-                           </Label>
+                                                <Label text="Where:">
+                                                </Label>
 
-                           <HBox fx:id="textsHBox">
-                           <TextField fx:id="whereClause" prefHeight="37.0" prefWidth="226.0" />
+                                                <TextField fx:id="whereClause" prefHeight="37.0" prefWidth="226.0" />
 
-                           </HBox>
-                           <Button fx:id="sendButton" prefHeight="25.0" prefWidth="73.0" text="SEND"/>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-         </tabs>
-      </TabPane>
-   </children>
+
+                                                <Button fx:id="sendButton" prefHeight="25.0" prefWidth="73.0" text="SEND" />
+                                            </children>
+                                            <GridPane.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                            </GridPane.margin>
+                                        </VBox>
+
+                                        <VBox maxHeight="100.0" maxWidth="345.0" minHeight="100.0" minWidth="345.0" prefHeight="100.0" prefWidth="345.0" GridPane.columnIndex="2">
+                                            <children>
+                                                <Label text="Result:" GridPane.rowIndex="1">
+
+                                                </Label>
+                                                <TextArea fx:id="simpleQueryResult" maxHeight="100.0" maxWidth="345.0" minHeight="100.0" minWidth="345.0" prefHeight="100.0" prefWidth="345.0" GridPane.rowIndex="2" />
+                                            </children>
+                                            <GridPane.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                            </GridPane.margin>
+                                        </VBox>
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints />
+                                        <ColumnConstraints maxWidth="367.0" minWidth="234.0" prefWidth="346.0" />
+                                        <ColumnConstraints maxWidth="337.0" minWidth="204.0" prefWidth="225.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints />
+                                    </rowConstraints>
+
+                                </GridPane>
+
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
 </VBox>
