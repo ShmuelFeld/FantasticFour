@@ -1,15 +1,17 @@
 /**
- *Adar Dorham 203537824 89-281-03
- *Omer Forma 304823230 89-281-03
- *Roi Peretz 203258041 89-281-04
- *Tomer Rahamim 203717475 89-281-05
+ * Adar Dorham 203537824 89-281-03
+ * Omer Forma 304823230 89-281-03
+ * Roi Peretz 203258041 89-281-04
+ * Tomer Rahamim 203717475 89-281-05
  ***/
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
@@ -20,6 +22,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
 import java.io.File;
 import java.util.List;
 import java.util.logging.StreamHandler;
@@ -29,67 +32,51 @@ import java.util.logging.StreamHandler;
  */
 public class ScreenController {
     public VBox mainPane;
-
-    enum TYPE{DDL,DML};
-
     Stage primaryStage;
 
-    public ScreenController(Stage primaryStage)
-    {
-        this.primaryStage = primaryStage;
-    }
-
+    ;
     @FXML
     ComboBox<String> tablesComboBox;
-
     @FXML
     RadioButton ddlFileRadioBtn;
-
     @FXML
     TextField ddlFileChooserTxt;
-
     @FXML
     Button ddlFileChooserBtn;
-
     @FXML
     RadioButton ddlQueryRadioBtn;
-
     @FXML
     TextArea ddlQueryTxt;
-
     @FXML
     Button ddlSendBtn;
-
     @FXML
     RadioButton dmlFileRadioBtn;
-
     @FXML
     TextField dmlFileChooserTxt;
-
     @FXML
     Button dmlFileChooserBtn;
-
     @FXML
     RadioButton dmlQueryRadioBtn;
-
     @FXML
     TextArea dmlQueryTxt;
-
     @FXML
     Button dmlSendBtn;
-
     @FXML
     TextArea ddlAnswerTxt;
-
     @FXML
     TextArea dmlAnswerTxt;
     @FXML
     Button sendButton;
     @FXML
     Tab simpleQueryTab;
-
     @FXML
     VBox columns;
+    @FXML
+    TextField whereClause;
+
+    public ScreenController(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
 
     @FXML
     void initialize() throws Exception {
@@ -109,14 +96,11 @@ public class ScreenController {
         ddlFileRadioBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (ddlTg.getSelectedToggle() == ddlFileRadioBtn)
-                {
+                if (ddlTg.getSelectedToggle() == ddlFileRadioBtn) {
                     ddlQueryTxt.setDisable(true);
                     ddlFileChooserTxt.setDisable(false);
                     ddlFileChooserBtn.setDisable(false);
-                }
-                else
-                {
+                } else {
                     ddlQueryTxt.setDisable(false);
                     ddlFileChooserTxt.setDisable(true);
                     ddlFileChooserBtn.setDisable(true);
@@ -127,14 +111,11 @@ public class ScreenController {
         ddlQueryRadioBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (ddlTg.getSelectedToggle() == ddlQueryRadioBtn)
-                {
+                if (ddlTg.getSelectedToggle() == ddlQueryRadioBtn) {
                     ddlQueryTxt.setDisable(false);
                     ddlFileChooserTxt.setDisable(true);
                     ddlFileChooserBtn.setDisable(true);
-                }
-                else
-                {
+                } else {
                     ddlQueryTxt.setDisable(true);
                     ddlFileChooserTxt.setDisable(false);
                     ddlFileChooserBtn.setDisable(false);
@@ -145,14 +126,11 @@ public class ScreenController {
         dmlQueryRadioBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (dmlTg.getSelectedToggle() == dmlQueryRadioBtn)
-                {
+                if (dmlTg.getSelectedToggle() == dmlQueryRadioBtn) {
                     dmlQueryTxt.setDisable(false);
                     dmlFileChooserTxt.setDisable(true);
                     dmlFileChooserBtn.setDisable(true);
-                }
-                else
-                {
+                } else {
                     dmlQueryTxt.setDisable(true);
                     dmlFileChooserTxt.setDisable(false);
                     dmlFileChooserBtn.setDisable(false);
@@ -163,14 +141,11 @@ public class ScreenController {
         dmlFileRadioBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (dmlTg.getSelectedToggle() == dmlFileRadioBtn)
-                {
+                if (dmlTg.getSelectedToggle() == dmlFileRadioBtn) {
                     dmlQueryTxt.setDisable(true);
                     dmlFileChooserTxt.setDisable(false);
                     dmlFileChooserBtn.setDisable(false);
-                }
-                else
-                {
+                } else {
                     dmlQueryTxt.setDisable(false);
                     dmlFileChooserTxt.setDisable(true);
                     dmlFileChooserBtn.setDisable(true);
@@ -181,27 +156,21 @@ public class ScreenController {
         ddlTg.selectToggle(ddlFileRadioBtn);
         dmlTg.selectToggle(dmlFileRadioBtn);
 
-        if (ddlTg.getSelectedToggle() == ddlFileRadioBtn)
-        {
+        if (ddlTg.getSelectedToggle() == ddlFileRadioBtn) {
             ddlQueryTxt.setDisable(true);
             ddlFileChooserTxt.setDisable(false);
             ddlFileChooserBtn.setDisable(false);
-        }
-        else
-        {
+        } else {
             ddlQueryTxt.setDisable(false);
             ddlFileChooserTxt.setDisable(true);
             ddlFileChooserBtn.setDisable(true);
         }
 
-        if (dmlTg.getSelectedToggle() == dmlFileRadioBtn)
-        {
+        if (dmlTg.getSelectedToggle() == dmlFileRadioBtn) {
             dmlQueryTxt.setDisable(true);
             dmlFileChooserTxt.setDisable(false);
             dmlFileChooserBtn.setDisable(false);
-        }
-        else
-        {
+        } else {
             dmlQueryTxt.setDisable(false);
             dmlFileChooserTxt.setDisable(true);
             dmlFileChooserBtn.setDisable(true);
@@ -252,7 +221,7 @@ public class ScreenController {
                 if (db.hasFiles()) {
                     success = true;
                     String filePath = null;
-                    for (File file:db.getFiles()) {
+                    for (File file : db.getFiles()) {
                         filePath = file.getAbsolutePath();
                         ddlFileChooserTxt.setText(filePath);
                         //System.out.println(filePath);
@@ -284,7 +253,7 @@ public class ScreenController {
                 if (db.hasFiles()) {
                     success = true;
                     String filePath = null;
-                    for (File file:db.getFiles()) {
+                    for (File file : db.getFiles()) {
                         filePath = file.getAbsolutePath();
                         dmlFileChooserTxt.setText(filePath);
                         //System.out.println(filePath);
@@ -304,29 +273,22 @@ public class ScreenController {
             @Override
             public void handle(MouseEvent event) {
                 if (ddlFileRadioBtn.isSelected()) {
-                    if(ddlFileChooserTxt.getText().equals(""))
-                    {
+                    if (ddlFileChooserTxt.getText().equals("")) {
                         new errorMsg("Error", "Please enter file").show();
-                    }
-                    else
-                    {
+                    } else {
                         executeScript(dbc, TYPE.DDL);
                     }
                 } else {
-                    if(ddlQueryTxt.getText().equals(""))
-                    {
+                    if (ddlQueryTxt.getText().equals("")) {
                         new errorMsg("Error", "Please enter query").show();
-                    }
-                    else
-                    {
+                    } else {
                         try {
-                            String result=dbc.sendDDLQuery(ddlQueryTxt.getText());
+                            String result = dbc.sendDDLQuery(ddlQueryTxt.getText());
                             ddlAnswerTxt.setText(result);
                         } catch (Exception e) {
-                            if(e.getMessage().contains("syntax")) {
+                            if (e.getMessage().contains("syntax")) {
                                 new errorMsg("WRONG QUERY STRUCTURE", e.getMessage()).show();
-                            }
-                            else {
+                            } else {
                                 new errorMsg("LOGICAL ERROR", e.getMessage()).show();
                             }
                             ddlAnswerTxt.setText("Failed");
@@ -345,29 +307,22 @@ public class ScreenController {
             @Override
             public void handle(MouseEvent event) {
                 if (dmlFileRadioBtn.isSelected()) {
-                    if(dmlFileChooserTxt.getText().equals(""))
-                    {
+                    if (dmlFileChooserTxt.getText().equals("")) {
                         new errorMsg("Error", "Please enter file").show();
-                    }
-                    else
-                    {
+                    } else {
                         executeScript(dbc, TYPE.DML);
                     }
                 } else {
-                    if(dmlQueryTxt.getText().equals(""))
-                    {
+                    if (dmlQueryTxt.getText().equals("")) {
                         new errorMsg("Error", "Please enter query").show();
-                    }
-                    else
-                    {
+                    } else {
                         try {
                             String answer = dbc.sendDMLQuery(dmlQueryTxt.getText());
                             dmlAnswerTxt.setText(answer);
                         } catch (Exception e) {
-                            if(e.getMessage().contains("syntax")) {
+                            if (e.getMessage().contains("syntax")) {
                                 new errorMsg("WRONG QUERY STRUCTURE", e.getMessage()).show();
-                            }
-                            else {
+                            } else {
                                 new errorMsg("LOGICAL ERROR", e.getMessage()).show();
                             }
                             dmlAnswerTxt.setText("Failed");
@@ -380,11 +335,11 @@ public class ScreenController {
         /*
         * delete result when focus on query
         */
-        ddlQueryTxt.focusedProperty().addListener(new ChangeListener<Boolean>(){
+        ddlQueryTxt.focusedProperty().addListener(new ChangeListener<Boolean>() {
 
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                if(ddlAnswerTxt.getText() == "Success") {
+                if (ddlAnswerTxt.getText() == "Success") {
                     ddlAnswerTxt.setText("");
                 }
             }
@@ -393,11 +348,11 @@ public class ScreenController {
         /*
         * delete result when focus on query
          */
-        dmlQueryTxt.focusedProperty().addListener(new ChangeListener<Boolean>(){
+        dmlQueryTxt.focusedProperty().addListener(new ChangeListener<Boolean>() {
 
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                if(ddlAnswerTxt.getText() == "Success") {
+                if (ddlAnswerTxt.getText() == "Success") {
                     dmlAnswerTxt.setText("");
                 }
             }
@@ -405,8 +360,35 @@ public class ScreenController {
 
         sendButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
-                System.out.print("dfd");
+                String query;
+                query = "select ";
+                ObservableList<Node> columnsList = columns.getChildren();
+                if (!columnsList.isEmpty()) {
+                    for (Node column : columnsList) {
+                        CheckBox checkBox = (CheckBox)column;
+                        if (checkBox.isSelected()) {
+                            query += checkBox.getText() + ",";
+                        }
+                    }
+                }
+
+                query = query.substring(0, query.length() - 1);
+
+                query += (" FROM " + tablesComboBox.getValue());
+                String where=whereClause.getCharacters().toString();
+                if (!where.isEmpty()) {
+                    query+=(" WHERE " +where);
+                }
+
+                try {
+                    String result=dbc.sendDMLQuery(query);
+                    System.out.println(result);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
             }
+
+
         });
 
 
@@ -415,10 +397,11 @@ public class ScreenController {
                     public void changed(ObservableValue<? extends String> ov,
                                         String old_val, String new_val) {
                         System.out.println("table selection changed");
-                        System.out.println("new value: "+new_val);
+                        System.out.println("new value: " + new_val);
+                        columns.getChildren().clear();
                         try {
-                            List<String> columnsNames=dbc.getColumnsNames(new_val);
-                            for(String name : columnsNames) {
+                            List<String> columnsNames = dbc.getColumnsNames(new_val);
+                            for (String name : columnsNames) {
                                 columns.getChildren().add(new CheckBox(name));
                             }
                         } catch (Exception e) {
@@ -431,25 +414,23 @@ public class ScreenController {
             @Override
             public void handle(Event t) {
                 System.out.print("blablabla");
-                        try {
-                            String result=dbc.sendDDLQuery("SHOW TABLES");
-                            //ddlAnswerTxt.setText(result);
-                            //putting the table names in array.
-                            String[] resultArr = result.split("\n");
-                            for(int i=1;i<resultArr.length;i++){
-                                tablesComboBox.getItems().addAll(resultArr[i]);
-                            }
+                try {
+                    String result = dbc.sendDDLQuery("SHOW TABLES");
+                    //ddlAnswerTxt.setText(result);
+                    //putting the table names in array.
+                    String[] resultArr = result.split("\n");
+                    for (int i = 1; i < resultArr.length; i++) {
+                        tablesComboBox.getItems().addAll(resultArr[i]);
+                    }
 
-                        } catch (Exception e) {
-                            if(e.getMessage().contains("syntax")) {
-                                new errorMsg("WRONG QUERY STRUCTURE", e.getMessage()).show();
-                            }
-                            else {
-                                new errorMsg("LOGICAL ERROR", e.getMessage()).show();
-                            }
-                            ddlAnswerTxt.setText("Failed");
-                        }
-
+                } catch (Exception e) {
+                    if (e.getMessage().contains("syntax")) {
+                        new errorMsg("WRONG QUERY STRUCTURE", e.getMessage()).show();
+                    } else {
+                        new errorMsg("LOGICAL ERROR", e.getMessage()).show();
+                    }
+                    ddlAnswerTxt.setText("Failed");
+                }
 
 
             }
@@ -459,9 +440,9 @@ public class ScreenController {
     /*
     * execute script file
      */
-    public void executeScript(DBClient dbc, TYPE type){
+    public void executeScript(DBClient dbc, TYPE type) {
         try {
-            if(!ddlFileChooserTxt.getText().isEmpty() || !dmlFileChooserTxt.getText().isEmpty()){
+            if (!ddlFileChooserTxt.getText().isEmpty() || !dmlFileChooserTxt.getText().isEmpty()) {
                 File script = null;
                 if (type == TYPE.DDL) {
                     script = new File(ddlFileChooserTxt.getText());
@@ -470,7 +451,7 @@ public class ScreenController {
                 }
                 List<String> commands = dbc.readScriptFromFile(script);
                 int size = commands.size();
-                for(int i =0; i<size ; i++) {
+                for (int i = 0; i < size; i++) {
                     try {
                         if (type == TYPE.DDL) {
                             dbc.sendDDLQuery(commands.get(i));
@@ -491,16 +472,16 @@ public class ScreenController {
                     ddlAnswerTxt.setText("Success");
                 }
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             if (type == TYPE.DDL) {
                 ddlAnswerTxt.setText("Failed");
-            }
-            else {
+            } else {
                 dmlAnswerTxt.setText("Failed");
             }
         }
     }
+
+    enum TYPE {DDL, DML}
 
 }
 
