@@ -20,7 +20,7 @@
     <children>
         <HBox alignment="CENTER" maxHeight="50.0" maxWidth="700.0" minHeight="50.0" minWidth="700.0" prefHeight="50.0" prefWidth="700.0">
             <children>
-                
+
             </children>
         </HBox>
         <TabPane maxHeight="300.0" maxWidth="-Infinity" minHeight="300.0" minWidth="-Infinity" prefHeight="300.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">

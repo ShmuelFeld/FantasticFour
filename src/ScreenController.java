@@ -437,7 +437,6 @@ public class ScreenController {
         simpleQueryTab.setOnSelectionChanged(new EventHandler<Event>() {
             @Override
             public void handle(Event t) {
-                System.out.print("blablabla");
                 tablesComboBox.getItems().clear();
                 try {
                     String result = dbc.sendDDLQuery("SHOW TABLES");
