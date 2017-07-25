@@ -1,9 +1,9 @@
 /**
- * Adar Dorham 203537824 89-281-03
- * Omer Forma 304823230 89-281-03
- * Roi Peretz 203258041 89-281-04
- * Tomer Rahamim 203717475 89-281-05
- ***/
+ * Shmuel Feld 305469801 89281-01
+ * Shani Shliselberg 313288839 89-281-02
+ * Ahinoam Rosengarten 308425164 89-281-02
+ * Amir Halfon 308559251 89-281-02
+ */
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -17,27 +17,21 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.util.List;
-import java.util.logging.StreamHandler;
+
 
 /**
- *
+ * Controller class- responsible for the connection between the view and the model, and for the view logic.
  */
-/*
-* Screen controlling class.
- */
-public class ScreenController {
+public class Controller {
     public VBox mainPane;
-    Stage primaryStage;
+    private Stage primaryStage;
 
-    ;
     @FXML
     ComboBox<String> tablesComboBox;
     @FXML
@@ -79,10 +73,20 @@ public class ScreenController {
     @FXML
     TextArea simpleQueryResult;
 
-    public ScreenController(Stage primaryStage) {
+    /**
+     * constructor.
+     *
+     * @param primaryStage primary stage
+     */
+    public Controller(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
+    /**
+     * initialize- initialize the view.
+     *
+     * @throws Exception
+     */
     @FXML
     void initialize() throws Exception {
         final ToggleGroup ddlTg = new ToggleGroup();
@@ -98,8 +102,9 @@ public class ScreenController {
         dmlAnswerTxt.setEditable(false);
         dmlFileChooserTxt.setEditable(false);
         simpleQueryResult.setEditable(false);
+
         /**
-         * Invokes when ddlFileRadioBtn is clicked.
+         * Invoked when ddlFileRadioBtn is clicked.
          */
         ddlFileRadioBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -115,8 +120,9 @@ public class ScreenController {
                 }
             }
         });
+
         /**
-         * Invokes when ddlQueryRadioBtn is clicked.
+         * Invoked when ddlQueryRadioBtn is clicked.
          */
         ddlQueryRadioBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -132,8 +138,9 @@ public class ScreenController {
                 }
             }
         });
+
         /**
-         * Invokes when dmlQueryRadioBtn is clicked.
+         * Invoked when dmlQueryRadioBtn is clicked.
          */
         dmlQueryRadioBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -149,8 +156,9 @@ public class ScreenController {
                 }
             }
         });
+
         /**
-         * Invokes when dmlFileRadioBtn is clicked.
+         * Invoked when dmlFileRadioBtn is clicked.
          */
         dmlFileRadioBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -189,8 +197,9 @@ public class ScreenController {
             dmlFileChooserTxt.setDisable(true);
             dmlFileChooserBtn.setDisable(true);
         }
+
         /**
-         * Invokes when ddlFileChooserBtn is clicked.
+         * Invoked when ddlFileChooserBtn is clicked.
          */
         ddlFileChooserBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -203,8 +212,9 @@ public class ScreenController {
                 ddlFileChooserTxt.setText(selectedFile.getAbsolutePath().toString());
             }
         });
+
         /**
-         * Invokes when dmlFileChooserBtn is clicked.
+         * Invoked when dmlFileChooserBtn is clicked.
          */
         dmlFileChooserBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -217,8 +227,9 @@ public class ScreenController {
                 dmlFileChooserTxt.setText(selectedFile.getAbsolutePath().toString());
             }
         });
+
         /**
-         * Invokes when ddlFileChooserTxt is clicked.
+         * Invoked when ddlFileChooserTxt is clicked.
          */
         ddlFileChooserTxt.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
@@ -265,7 +276,9 @@ public class ScreenController {
             }
         });
 
-        // Dropping over surface
+        /**
+         * Dropping over surface
+         */
         dmlFileChooserTxt.setOnDragDropped(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent event) {
@@ -284,10 +297,10 @@ public class ScreenController {
             }
         });
 
-        final DBClient dbc = new DBClient();
+        final Model dbc = new Model();
 
-        /*
-        * handle ddl script
+        /**
+         * handle ddl script
          */
         ddlSendBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -320,8 +333,8 @@ public class ScreenController {
             }
         });
 
-        /*
-        * handle dml script
+        /**
+         * handle dml script
          */
         dmlSendBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -352,32 +365,35 @@ public class ScreenController {
             }
         });
 
-        /*
-        * delete result when focus on query
-        */
+        /**
+         * delete result when focus on query
+         */
         ddlQueryTxt.focusedProperty().addListener(new ChangeListener<Boolean>() {
 
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                if (ddlAnswerTxt.getText() == "Success") {
+                if (ddlAnswerTxt.getText().equals("Success")) {
                     ddlAnswerTxt.setText("");
                 }
             }
         });
 
-        /*
-        * delete result when focus on query
+        /**
+         * delete result when focus on query
          */
         dmlQueryTxt.focusedProperty().addListener(new ChangeListener<Boolean>() {
 
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                if (ddlAnswerTxt.getText() == "Success") {
+                if (ddlAnswerTxt.getText().equals("Success")) {
                     dmlAnswerTxt.setText("");
                 }
             }
         });
 
+        /**
+         * send button of simple query- execute the query and show result.
+         */
         sendButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
                 simpleQueryResult.clear();
@@ -417,30 +433,38 @@ public class ScreenController {
 
         });
 
-
+        /**
+         * when choosing a table, add the columns names to the screen.
+         */
         tablesComboBox.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<String>() {
                     public void changed(ObservableValue<? extends String> ov,
-                                        String old_val, String new_val) {
+                                        String oldValue, String newValue) {
                         columns.getChildren().clear();
                         try {
-                            List<String> columnsNames = dbc.getColumnsNames(new_val);
+                            List<String> columnsNames = dbc.getColumnsNames(newValue);
                             for (String name : columnsNames) {
                                 columns.getChildren().add(new CheckBox(name));
                             }
                         } catch (Exception e) {
-                            System.out.println(e.getMessage());
+                            if (e.getMessage().contains("syntax")) {
+                                new errorMsg("WRONG QUERY STRUCTURE", e.getMessage()).show();
+                            } else {
+                                new errorMsg("LOGICAL ERROR", e.getMessage()).show();
+                            }
                         }
                     }
                 });
 
+        /**
+         * filling the combo box with tables' names.
+         */
         simpleQueryTab.setOnSelectionChanged(new EventHandler<Event>() {
             @Override
             public void handle(Event t) {
                 tablesComboBox.getItems().clear();
                 try {
                     String result = dbc.sendDDLQuery("SHOW TABLES");
-                    //ddlAnswerTxt.setText(result);
                     //putting the table names in array.
                     String[] resultArr = result.split("\n");
                     for (int i = 1; i < resultArr.length; i++) {
@@ -453,7 +477,6 @@ public class ScreenController {
                     } else {
                         new errorMsg("LOGICAL ERROR", e.getMessage()).show();
                     }
-                    ddlAnswerTxt.setText("Failed");
                 }
 
 
@@ -461,10 +484,10 @@ public class ScreenController {
         });
     }
 
-    /*
-    * execute script file
+    /**
+     * execute script file
      */
-    public void executeScript(DBClient dbc, TYPE type) {
+    public void executeScript(Model dbc, TYPE type) {
         try {
             if (!ddlFileChooserTxt.getText().isEmpty() || !dmlFileChooserTxt.getText().isEmpty()) {
                 File script = null;

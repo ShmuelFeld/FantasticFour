@@ -1,23 +1,20 @@
-/***
- * Adar Dorham 203537824 89-281-03
- * Omer Forma 304823230 89-281-03
- * Roi Peretz 203258041 89-281-04
- * Tomer Rahamim 203717475 89-281-05
- ***/
+/**
+ * Shmuel Feld 305469801 89281-01
+ * Shani Shliselberg 313288839 89-281-02
+ * Ahinoam Rosengarten 308425164 89-281-02
+ * Amir Halfon 308559251 89-281-02
+ */
 
-
-import javax.management.Query;
 import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DBClient class - class role is creating and controlling the connection to the
- * database . Send the queries to the server
- * and receive the required data
+ * Model class - class role is creating and controlling the connection to the
+ * database, send the queries to the server and receive the required data.
  */
-public class DBClient {
+public class Model {
 
     //The driver
     public static final String dbClass = "com.mysql.jdbc.Driver";
@@ -25,17 +22,17 @@ public class DBClient {
     private Statement statement = null;
 
     /**
-     * DBClient ccontroller - create new DBClient , taking the database information from
+     * Model contructor - create new Model , taking the database information from
      * the conf.txt file ,and creating the required connection.
      *
      * @throws Exception
      */
-    public DBClient() throws Exception {
+    public Model() throws Exception {
 
         //Extract configuration from conf.txt file.
         InputStream in = getClass().getResourceAsStream("/conf.txt");
         BufferedReader br = new BufferedReader(new InputStreamReader(in));
-        //Take the usrl for the server.
+        //Take the url for the server.
         String url = br.readLine();
         //Take the user name and password for the database.
         String userName = br.readLine();
@@ -133,11 +130,18 @@ public class DBClient {
         return commands;
     }
 
+    /**
+     * getColumnsNames- return list of columns' names of the specified table.
+     *
+     * @param tableName name of the required table.
+     * @return list of columns' names of the specified table.
+     * @throws Exception
+     */
     public List<String> getColumnsNames(String tableName) throws Exception {
         String query = "SHOW columns FROM " + tableName;
         ResultSet resultSet = statement.executeQuery(query);
         ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-        List<String> fieldsList=new ArrayList<String>();
+        List<String> fieldsList = new ArrayList<String>();
 
         while (resultSet.next()) {
             String fieldName = resultSet.getString(1);
@@ -145,7 +149,6 @@ public class DBClient {
         }
 
         return fieldsList;
-
     }
 
 }

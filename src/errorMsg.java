@@ -1,9 +1,9 @@
-/***
- *Adar Dorham 203537824 89-281-03
- *Omer Forma 304823230 89-281-03
- *Roi Peretz 203258041 89-281-04
- *Tomer Rahamim 203717475 89-281-05
- ***/
+/**
+ * Shmuel Feld 305469801 89281-01
+ * Shani Shliselberg 313288839 89-281-02
+ * Ahinoam Rosengarten 308425164 89-281-02
+ * Amir Halfon 308559251 89-281-02
+ */
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,35 +14,50 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * ErrorMsg class - the window to show when some error occured.
+ * ErrorMsg class - the window to show when some error occurs.
  */
-public class errorMsg implements Runnable{
+public class errorMsg implements Runnable {
     String tag;
     String msg;
     String query;
 
+    /**
+     * constructor.
+     *
+     * @param tag from which tag the error is coming from.
+     * @param msg message about the error.
+     */
     public errorMsg(String tag, String msg) {
         this.tag = tag;
         this.msg = msg;
         this.query = null;
     }
 
+    /**
+     * constructor.
+     *
+     * @param tag   from which tag the error is coming from.
+     * @param msg   message about the error.
+     * @param query which query had an error.
+     */
     public errorMsg(String tag, String msg, String query) {
         this.tag = tag;
         this.msg = msg;
         this.query = query;
     }
 
+    /**
+     * show- show the window.
+     */
     public void show() {
         Stage stage = new Stage();
         Parent root = null;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("errorMsg.fxml"));
             errorMsgController controller;
-            if(this.query == null) {
+            if (this.query == null) {
                 controller = new errorMsgController(this.tag, this.msg);
-            }
-            else {
+            } else {
                 controller = new errorMsgController(this.tag, this.msg, this.query);
             }
             loader.setController(controller);
@@ -61,6 +76,9 @@ public class errorMsg implements Runnable{
     }
 
     @Override
+    /**
+     * run- implementation of Runnable interface.
+     */
     public void run() {
         show();
     }

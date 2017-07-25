@@ -1,9 +1,9 @@
-/***
- *Adar Dorham 203537824 89-281-03
- *Omer Forma 304823230 89-281-03
- *Roi Peretz 203258041 89-281-04
- *Tomer Rahamim 203717475 89-281-05
- ***/
+/**
+ * Shmuel Feld 305469801 89281-01
+ * Shani Shliselberg 313288839 89-281-02
+ * Ahinoam Rosengarten 308425164 89-281-02
+ * Amir Halfon 308559251 89-281-02
+ */
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,20 +13,29 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 
-
 /**
- * Screen class - The class of the main screen window.
+ * View class - The class of the main screen window.
  */
-
-public class Screen extends Application {
+public class View extends Application {
+    /**
+     * main function.
+     *
+     * @param args program arguments.
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+     * start- implementation of Application abstract function.
+     *
+     * @param primaryStage primary stage.
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Screen.fxml"));
-        ScreenController controller = new ScreenController(primaryStage);
+        Controller controller = new Controller(primaryStage);
         loader.setController(controller);
         Parent root = (Parent) loader.load();
         //The Window title.

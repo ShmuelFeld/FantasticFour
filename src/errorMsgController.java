@@ -1,9 +1,9 @@
-/***
- *Adar Dorham 203537824 89-281-03
- *Omer Forma 304823230 89-281-03
- *Roi Peretz 203258041 89-281-04
- *Tomer Rahamim 203717475 89-281-05
- ***/
+/**
+ * Shmuel Feld 305469801 89281-01
+ * Shani Shliselberg 313288839 89-281-02
+ * Ahinoam Rosengarten 308425164 89-281-02
+ * Amir Halfon 308559251 89-281-02
+ */
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,45 +16,57 @@ import javafx.stage.Stage;
  * errorMsgController - Controller for errorMsg class.
  */
 public class errorMsgController {
-    String tag;
-    String msg;
-    String query;
+    @FXML
+    Label lblQuery;
+    @FXML
+    Label lblError;
+    @FXML
+    Label titleError;
+    @FXML
+    Button btnError;
+    private String tag;
+    private String msg;
+    private String query;
 
+    /**
+     * constructor.
+     *
+     * @param tag from which tag the error is coming from.
+     * @param msg message about the error.
+     */
     public errorMsgController(String tag, String msg) {
         this.tag = tag;
         this.msg = msg;
         query = null;
     }
 
+    /**
+     * constructor
+     *
+     * @param tag   from which tag the error is coming from.
+     * @param msg   message about the error.
+     * @param query which query had an error.
+     */
     public errorMsgController(String tag, String msg, String query) {
         this.tag = tag;
         this.msg = msg;
         this.query = query;
     }
 
+    /**
+     * initialize- initialize the window.
+     */
     @FXML
-    Label lblQuery;
-
-    @FXML
-    Label lblError;
-
-    @FXML
-    Label titleError;
-
-    @FXML
-    Button btnError;
-
-    @FXML
-    void initialize(){
+    void initialize() {
         titleError.setText(this.tag);
-        if(this.query != null) {
+        if (this.query != null) {
             lblQuery.setText("Script in line:" + this.query);
         }
         lblError.setText(this.msg);
         btnError.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                ((Stage)(btnError.getScene().getWindow())).close();
+                ((Stage) (btnError.getScene().getWindow())).close();
             }
         });
         lblError.setPrefWidth(450);
