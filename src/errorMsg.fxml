@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--
+ Shmuel Feld 305469801 89281-01
+ Shani Shliselberg 313288839 89-281-02
+ Ahinoam Rosengarten 308425164 89-281-02
+ Amir Halfon 308559251 89-281-02
+-->
+
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
@@ -9,32 +16,34 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="errorPane" maxHeight="350.0" maxWidth="500.0" minHeight="350.0" minWidth="500.0" prefHeight="350.0" prefWidth="500.0" styleClass="errorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-         <children>
-            <ImageView fx:id="imgError" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="imgError" />
-            <Label fx:id="titleError" styleClass="titleError" text="Error!">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label fx:id="lblQuery" alignment="CENTER" styleClass="lblError" text="Error context" textFill="WHITE" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label fx:id="lblError" alignment="CENTER" styleClass="lblError" text="Error context" textFill="WHITE" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button fx:id="btnError" mnemonicParsing="false" styleClass="btnError" text="Close" />
-         </children>
-      </HBox>
-   </children>
+<VBox fx:id="errorPane" maxHeight="350.0" maxWidth="500.0" minHeight="350.0" minWidth="500.0" prefHeight="350.0"
+      prefWidth="500.0" styleClass="errorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <children>
+                <ImageView fx:id="imgError" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true"
+                           styleClass="imgError"/>
+                <Label fx:id="titleError" styleClass="titleError" text="Error!">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <Label fx:id="lblQuery" alignment="CENTER" styleClass="lblError" text="Error context" textFill="WHITE"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <Label fx:id="lblError" alignment="CENTER" styleClass="lblError" text="Error context" textFill="WHITE"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <Button fx:id="btnError" mnemonicParsing="false" styleClass="btnError" text="Close"/>
+            </children>
+        </HBox>
+    </children>
 </VBox>
