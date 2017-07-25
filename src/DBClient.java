@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DBClient class - responsible for creating and maintaining the connection to the
- * database specify in the configuration file. Send the queries to the server
- * and receive the data.
+ * DBClient class - class role is creating and controlling the connection to the
+ * database . Send the queries to the server
+ * and receive the required data
  */
 public class DBClient {
 
@@ -25,8 +25,8 @@ public class DBClient {
     private Statement statement = null;
 
     /**
-     * DBClient c'tor - create new DBClient , extract the database information from
-     * the conf.txt file and establish the connection with the server.
+     * DBClient ccontroller - create new DBClient , taking the database information from
+     * the conf.txt file ,and creating the required connection.
      *
      * @throws Exception
      */
@@ -141,7 +141,6 @@ public class DBClient {
 
         while (resultSet.next()) {
             String fieldName = resultSet.getString(1);
-            System.out.println(fieldName);
             fieldsList.add(fieldName);
         }
 

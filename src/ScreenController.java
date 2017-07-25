@@ -27,8 +27,11 @@ import java.io.File;
 import java.util.List;
 import java.util.logging.StreamHandler;
 
+/**
+ *
+ */
 /*
-* handle screen views
+* Screen controlling class.
  */
 public class ScreenController {
     public VBox mainPane;
@@ -95,7 +98,9 @@ public class ScreenController {
         dmlAnswerTxt.setEditable(false);
         dmlFileChooserTxt.setEditable(false);
         simpleQueryResult.setEditable(false);
-
+        /**
+         * Invokes when ddlFileRadioBtn is clicked.
+         */
         ddlFileRadioBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -110,7 +115,9 @@ public class ScreenController {
                 }
             }
         });
-
+        /**
+         * Invokes when ddlQueryRadioBtn is clicked.
+         */
         ddlQueryRadioBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -125,7 +132,9 @@ public class ScreenController {
                 }
             }
         });
-
+        /**
+         * Invokes when dmlQueryRadioBtn is clicked.
+         */
         dmlQueryRadioBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -140,7 +149,9 @@ public class ScreenController {
                 }
             }
         });
-
+        /**
+         * Invokes when dmlFileRadioBtn is clicked.
+         */
         dmlFileRadioBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -178,7 +189,9 @@ public class ScreenController {
             dmlFileChooserTxt.setDisable(true);
             dmlFileChooserBtn.setDisable(true);
         }
-
+        /**
+         * Invokes when ddlFileChooserBtn is clicked.
+         */
         ddlFileChooserBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -190,7 +203,9 @@ public class ScreenController {
                 ddlFileChooserTxt.setText(selectedFile.getAbsolutePath().toString());
             }
         });
-
+        /**
+         * Invokes when dmlFileChooserBtn is clicked.
+         */
         dmlFileChooserBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -202,7 +217,9 @@ public class ScreenController {
                 dmlFileChooserTxt.setText(selectedFile.getAbsolutePath().toString());
             }
         });
-
+        /**
+         * Invokes when ddlFileChooserTxt is clicked.
+         */
         ddlFileChooserTxt.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent event) {
@@ -215,7 +232,9 @@ public class ScreenController {
             }
         });
 
-        // Dropping over surface
+        /**
+         * Dropping over surface
+         */
         ddlFileChooserTxt.setOnDragDropped(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent event) {
@@ -227,7 +246,6 @@ public class ScreenController {
                     for (File file : db.getFiles()) {
                         filePath = file.getAbsolutePath();
                         ddlFileChooserTxt.setText(filePath);
-                        //System.out.println(filePath);
                     }
                 }
                 event.setDropCompleted(success);
@@ -259,7 +277,6 @@ public class ScreenController {
                     for (File file : db.getFiles()) {
                         filePath = file.getAbsolutePath();
                         dmlFileChooserTxt.setText(filePath);
-                        //System.out.println(filePath);
                     }
                 }
                 event.setDropCompleted(success);
@@ -386,7 +403,6 @@ public class ScreenController {
 
                 try {
                     String result = dbc.sendDMLQuery(query);
-                    System.out.println(result);
                     simpleQueryResult.setText(result);
 
                 } catch (Exception e) {
@@ -406,8 +422,6 @@ public class ScreenController {
                 new ChangeListener<String>() {
                     public void changed(ObservableValue<? extends String> ov,
                                         String old_val, String new_val) {
-                        System.out.println("table selection changed");
-                        System.out.println("new value: " + new_val);
                         columns.getChildren().clear();
                         try {
                             List<String> columnsNames = dbc.getColumnsNames(new_val);

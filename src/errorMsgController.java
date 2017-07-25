@@ -13,7 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
- * Created by roi on 11/01/16.
+ * errorMsgController - Controller for errorMsg class.
  */
 public class errorMsgController {
     String tag;

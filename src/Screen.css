@@ -1,6 +1,6 @@
 .button{
     -fx-background-color:
-            linear-gradient(#6495ED, #0000EE),
+            linear-gradient(#6495ED, #14ee00),
             radial-gradient(center 50% -40%, radius 200%, #4876FF 45%, #3A5FCD 50%);
     -fx-background-radius: 6, 5;
     -fx-background-insets: 0, 1;
@@ -11,7 +11,7 @@
 
 .button:hover{
     -fx-background-color:
-            linear-gradient(#6495ED, #0000EE),
+            linear-gradient(#6495ED, #00ee08),
             radial-gradient(center 50% -40%, radius 200%, #0000CD 45%, #27408B 50%);
     -fx-background-radius: 6, 5;
     -fx-background-insets: 0, 1;
@@ -22,7 +22,7 @@
 
 .button:pressed{
     -fx-background-color:
-            linear-gradient(#6495ED, #0000EE),
+            linear-gradient(#6495ED, #3dee1c),
             radial-gradient(center 50% -40%, radius 200%, #27408B 45%, #000080 50%);
     -fx-background-radius: 6, 5;
     -fx-background-insets: 0, 1;
@@ -40,14 +40,30 @@
     -fx-image: url(DML.png);
     -fx-background-size: cover;
 }
+.simpleLogo{
+    -fx-image: url(simLogo.png);
+    -fx-background-size: cover;
+}
 
 .dbLogo{
-    -fx-image: url(DB-Project.png);
+    -fx-image: url(DB-logo.png);
     -fx-background-size: cover;
 }
 
 .answerLogo{
     -fx-image: url(Answer.png);
+    -fx-background-size: cover;
+}
+.tablesLogo{
+    -fx-image: url(tables.png);
+    -fx-background-size: cover;
+}
+.columnLogo{
+    -fx-image: url(column.png);
+    -fx-background-size: cover;
+}
+.whereLogo{
+    -fx-image: url(where.png);
     -fx-background-size: cover;
 }
 
@@ -62,7 +78,7 @@
 
 .tab-pane .tab {
     -fx-background-color:
-            linear-gradient(#6495ED, #0000EE),
+            linear-gradient(#6495ED, #1fee1e),
             radial-gradient(center 50% -40%, radius 200%, #4876FF 45%, #3A5FCD 50%);
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
     -fx-font-weight: bold;
@@ -71,7 +87,7 @@
 
 .tab-pane .tab:selected {
     -fx-background-color:
-            linear-gradient(#6495ED, #0000EE),
+            linear-gradient(#6495ED, #05ee00),
             radial-gradient(center 50% -40%, radius 200%, #27408B 45%, #000080 50%);
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
     -fx-font-weight: bold;

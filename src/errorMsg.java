@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Created by roi on 11/01/16.
+ * ErrorMsg class - the window to show when some error occured.
  */
 public class errorMsg implements Runnable{
     String tag;
@@ -51,7 +51,7 @@ public class errorMsg implements Runnable{
             e.printStackTrace();
         }
 
-        stage.setTitle("Error");
+        stage.setTitle("Error!");
         Scene scene = new Scene(root, 500, 350);
         scene.getStylesheets().add(getClass().getResource("errorMsg.css").toExternalForm());
         stage.setScene(scene);

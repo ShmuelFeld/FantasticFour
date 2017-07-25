@@ -15,7 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
- * Created by roi on 11/01/16.
+ *
  */
 public class succesMsgController {
     String tag;

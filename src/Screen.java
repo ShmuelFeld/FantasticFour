@@ -15,7 +15,7 @@ import javafx.stage.StageStyle;
 
 
 /**
- * Created by roi on 16/06/16.
+ * Screen class - The class of the main screen window.
  */
 
 public class Screen extends Application {
@@ -29,11 +29,13 @@ public class Screen extends Application {
         ScreenController controller = new ScreenController(primaryStage);
         loader.setController(controller);
         Parent root = (Parent) loader.load();
+        //The Window title.
         primaryStage.setTitle("DB-Project");
         primaryStage.initStyle(StageStyle.DECORATED);
         Scene scene = new Scene(root, 700, 350);
         scene.getStylesheets().add(getClass().getResource("Screen.css").toExternalForm());
         primaryStage.setScene(scene);
+        //Window size is fixed.
         primaryStage.setResizable(false);
 
         primaryStage.show();
