@@ -1,7 +1,7 @@
 .button{
     -fx-background-color:
-            linear-gradient(#6495ED, #14ee00),
-            radial-gradient(center 50% -40%, radius 200%, #4876FF 45%, #3A5FCD 50%);
+            linear-gradient(#91edaa, #14ee00),
+            radial-gradient(center 50% -40%, radius 200%, #91edaa 45%, #afff26 50%);
     -fx-background-radius: 6, 5;
     -fx-background-insets: 0, 1;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
@@ -11,8 +11,8 @@
 
 .button:hover{
     -fx-background-color:
-            linear-gradient(#6495ED, #00ee08),
-            radial-gradient(center 50% -40%, radius 200%, #0000CD 45%, #27408B 50%);
+            linear-gradient(#91edaa, #00ee08),
+            radial-gradient(center 50% -40%, radius 200%, #91edaa 45%, #79eda1 50%);
     -fx-background-radius: 6, 5;
     -fx-background-insets: 0, 1;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
@@ -22,8 +22,8 @@
 
 .button:pressed{
     -fx-background-color:
-            linear-gradient(#6495ED, #3dee1c),
-            radial-gradient(center 50% -40%, radius 200%, #27408B 45%, #000080 50%);
+            linear-gradient(#91edaa, #3dee1c),
+            radial-gradient(center 50% -40%, radius 200%, #c4c280 45%, #807a04 50%);
     -fx-background-radius: 6, 5;
     -fx-background-insets: 0, 1;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
@@ -78,8 +78,8 @@
 
 .tab-pane .tab {
     -fx-background-color:
-            linear-gradient(#6495ED, #1fee1e),
-            radial-gradient(center 50% -40%, radius 200%, #4876FF 45%, #3A5FCD 50%);
+            linear-gradient(#91edaa, #1fee1e),
+            radial-gradient(center 50% -40%, radius 200%, #91edaa 45%, #85ffc0 50%);
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
     -fx-font-weight: bold;
     -fx-text-fill: white;
@@ -87,8 +87,8 @@
 
 .tab-pane .tab:selected {
     -fx-background-color:
-            linear-gradient(#6495ED, #05ee00),
-            radial-gradient(center 50% -40%, radius 200%, #27408B 45%, #000080 50%);
+            linear-gradient(#91edaa, #05ee00),
+            radial-gradient(center 50% -40%, radius 200%, #c4c280 45%, #807a04 50%);
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
     -fx-font-weight: bold;
     -fx-text-fill: white;

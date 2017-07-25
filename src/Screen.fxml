@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -16,7 +21,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="700.0" styleClass="mainPane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="700.0" styleClass="mainPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <HBox alignment="CENTER" maxHeight="50.0" maxWidth="700.0" minHeight="50.0" minWidth="700.0" prefHeight="50.0" prefWidth="700.0">
             <children>
@@ -256,66 +261,68 @@
                             </children>
                             </HBox>
                                 <VBox maxHeight="250.0" maxWidth="700.0" minHeight="250.0" minWidth="700.0" prefHeight="250.0" prefWidth="700.0">
-                                <GridPane alignment="CENTER" layoutY="29.0" prefHeight="210.0" prefWidth="571.0">
-
-                                    <children>
-
-                                        <VBox prefHeight="212.0" prefWidth="391.0" GridPane.columnIndex="1">
-
-                                            <children>
-                                            
-                                                <ImageView fx:id="tableLogo" fitHeight="36.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true" styleClass="tablesLogo">
+                                   <children>
+                                   <GridPane alignment="CENTER" layoutY="29.0" prefHeight="210.0" prefWidth="571.0">
+   
+                                       <children>
+   
+                                           <VBox prefHeight="212.0" prefWidth="391.0" GridPane.columnIndex="1">
+   
+                                               <children>
+                                               
+                                                   <ImageView fx:id="tableLogo" fitHeight="36.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true" styleClass="tablesLogo">
                                                 </ImageView>
-                                                <ComboBox fx:id="tablesComboBox" prefHeight="25.0" prefWidth="76.0">
+                                                   <ComboBox fx:id="tablesComboBox" prefHeight="25.0" prefWidth="76.0">
                                                 </ComboBox>
-                                    <ImageView fitHeight="34.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true" />
-                                                <ImageView fx:id="colLogo" fitHeight="30.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" styleClass="columnLogo">
+                                       <ImageView fitHeight="34.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true" />
+                                                   <ImageView fx:id="colLogo" fitHeight="30.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" styleClass="columnLogo">
                                                 </ImageView>
-                                                <VBox fx:id="columns">
-                                                    <GridPane.margin>
-                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                    </GridPane.margin>
-                                                </VBox>
-
-
-                                                    <ImageView fx:id="whereLogo" fitHeight="30.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" styleClass="whereLogo">
+                                                   <VBox fx:id="columns">
+                                                       <GridPane.margin>
+                                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                       </GridPane.margin>
+                                                   </VBox>
+   
+   
+                                                       <ImageView fx:id="whereLogo" fitHeight="30.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" styleClass="whereLogo">
                                                     </ImageView>
-
-
-                                                <TextField fx:id="whereClause" prefHeight="25.0" prefWidth="228.0" />
-
-
-                                                <Button fx:id="sendButton" prefHeight="25.0" prefWidth="73.0" text="SEND" />
-                                            </children>
-                                            <GridPane.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                            </GridPane.margin>
-                                        </VBox>
-
-                                        <VBox maxHeight="100.0" maxWidth="345.0" minHeight="100.0" minWidth="345.0" prefHeight="100.0" prefWidth="345.0" GridPane.columnIndex="2">
-                                            <children>
-
-                                                    <ImageView fx:id="simpleAnswerLogo" fitHeight="30.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" styleClass="answerLogo">
+   
+   
+                                                   <TextField fx:id="whereClause" prefHeight="25.0" prefWidth="228.0" />
+   
+   
+                                                   <Button fx:id="sendButton" prefHeight="25.0" prefWidth="73.0" text="Send" />
+                                               </children>
+                                               <GridPane.margin>
+                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                               </GridPane.margin>
+                                           </VBox>
+   
+                                           <VBox maxHeight="100.0" maxWidth="345.0" minHeight="100.0" minWidth="345.0" prefHeight="100.0" prefWidth="345.0" GridPane.columnIndex="2">
+                                               <children>
+   
+                                                       <ImageView fx:id="simpleAnswerLogo" fitHeight="30.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" styleClass="answerLogo">
                                                     </ImageView>
-
-
-                                                <TextArea fx:id="simpleQueryResult" maxHeight="100.0" maxWidth="345.0" minHeight="100.0" minWidth="345.0" prefHeight="100.0" prefWidth="345.0" GridPane.rowIndex="2" />
-                                            </children>
-                                            <GridPane.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                            </GridPane.margin>
-                                        </VBox>
-                                    </children>
-                                    <columnConstraints>
-                                        <ColumnConstraints />
-                                        <ColumnConstraints maxWidth="367.0" minWidth="234.0" prefWidth="347.0" />
-                                        <ColumnConstraints maxWidth="337.0" minWidth="204.0" prefWidth="224.0" />
-                                    </columnConstraints>
-                                    <rowConstraints>
-                                        <RowConstraints />
-                                    </rowConstraints>
-
-                                </GridPane>
+   
+   
+                                                   <TextArea fx:id="simpleQueryResult" maxHeight="100.0" maxWidth="345.0" minHeight="100.0" minWidth="345.0" prefHeight="100.0" prefWidth="345.0" GridPane.rowIndex="2" />
+                                               </children>
+                                               <GridPane.margin>
+                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                               </GridPane.margin>
+                                           </VBox>
+                                       </children>
+                                       <columnConstraints>
+                                           <ColumnConstraints />
+                                           <ColumnConstraints maxWidth="367.0" minWidth="234.0" prefWidth="347.0" />
+                                           <ColumnConstraints maxWidth="337.0" minWidth="204.0" prefWidth="224.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                           <RowConstraints />
+                                       </rowConstraints>
+   
+                                   </GridPane>
+                                   </children>
                             </VBox>
                             </children>
                         </AnchorPane>

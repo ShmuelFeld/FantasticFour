@@ -422,11 +422,7 @@ public class Controller {
                     simpleQueryResult.setText(result);
 
                 } catch (Exception e) {
-                    if (e.getMessage().contains("syntax")) {
-                        new errorMsg("WRONG QUERY STRUCTURE", e.getMessage()).show();
-                    } else {
-                        new errorMsg("LOGICAL ERROR", e.getMessage()).show();
-                    }
+
                 }
             }
 
@@ -447,11 +443,7 @@ public class Controller {
                                 columns.getChildren().add(new CheckBox(name));
                             }
                         } catch (Exception e) {
-                            if (e.getMessage().contains("syntax")) {
-                                new errorMsg("WRONG QUERY STRUCTURE", e.getMessage()).show();
-                            } else {
-                                new errorMsg("LOGICAL ERROR", e.getMessage()).show();
-                            }
+                            
                         }
                     }
                 });
