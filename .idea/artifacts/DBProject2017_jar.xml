@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DBProject2017:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DBProject2017_jar</output-path>
+    <root id="archive" name="FantasticFour.jar">
+      <element id="module-output" name="FantasticFour" />
+      <element id="extracted-dir" path="D:/programs/jdk8/jre/lib/mysql-connector-java-5.1.42-bin.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

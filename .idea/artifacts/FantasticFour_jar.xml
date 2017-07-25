@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="FantasticFour:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/FantasticFour_jar</output-path>
-    <root id="archive" name="FantasticFour.jar">
-      <element id="module-output" name="FantasticFour" />
-    </root>
-  </artifact>
-</component>
