@@ -68,7 +68,7 @@ public class errorMsg implements Runnable {
 
         stage.setTitle("Error!");
         Scene scene = new Scene(root, 500, 350);
-        scene.getStylesheets().add(getClass().getResource("errorMsg.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("errorMSG.css").toExternalForm());
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setResizable(false);
